@@ -47,32 +47,32 @@ namespace PhpTravels.UITests
 					
 		}
 
-		[Test]
-		public void Hotel_Room_Add()
-		{
-			LoginAsAdmin();
+        [Test]
+        public void Hotel_Room_Add()
+        {
+            LoginAsAdmin();
 
-			Go.To<HotelsPage>().
-				Add.ClickAndGo().
-					HotelName.SetRandom(out string name).
-					HotelDescription.SetRandom(out string description).
-					Stars.Set(4).
-					Type.Set("Hotel").
-					From.Set("26/01/2019").
-					To.Set("27/01/2019").
-					Location.Set("Los Angeles").
-					Submit();
+            Go.To<HotelsPage>().
+                Add.ClickAndGo().
+                    HotelName.SetRandom(out string name).
+                    HotelDescription.SetRandom(out string description).
+                    Stars.Set(4).
+                    Type.Set("Hotel").
+                    From.Set("26/01/2019").
+                    To.Set("27/01/2019").
+                    Location.Set("Los Angeles").
+                    Submit();
 
-			Go.To<RoomsPage>().
-				Add.ClickAndGo().
-					RoomType.Set("Superior Double").
-					Hotel.Set(name).
-					Price.Set(200).
-					Submit().
-				Rooms.Rows[x => x.Hotel == name].Hotel.Should.Equal(name).
-				Rooms.Rows[x => x.Hotel == name].Price.Should.Equal("200");
+            Go.To<RoomsPage>().
+                Add.ClickAndGo().
+                    RoomType.Set("Superior Double").
+                    Hotel.Set(name).
+                    Price.Set(200).
+                    Submit().
+                Rooms.Rows[x => x.Hotel == name].Hotel.Should.Equal(name).
+                Rooms.Rows[x => x.Hotel == name].Price.Should.Equal("200");
 
 
-		}
+        }
     }
 }
