@@ -52,6 +52,7 @@ namespace PhpTravels.UITests
         {
             LoginAsAdmin();
 
+
             Go.To<HotelsPage>().
                 Add.ClickAndGo().
                     HotelName.SetRandom(out string name).
